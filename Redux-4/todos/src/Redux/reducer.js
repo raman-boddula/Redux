@@ -1,17 +1,27 @@
-import { ADD_TODO, TOGGLE_TODO } from "./actionTypes.js";
+import {
+  ADD_TODO,
+  DELETE_TODO
+} from "./actionTypes";
 
-export default  (state, { type, payload }) => {
-    switch (type) {
-        case ADD_TODO:
-            return {
-                ...state,
-                todo: [...state.todo, payload]
-            }
-        case TOGGLE_TODO:
-            return {
-                ...state,
-                todo: state.todo.map(item => item.title === payload ? { ...item, status: !item.status } : item)
-            }
-        default : return state;
-    }
-}
+export const initState = {
+  todo: []
+};
+
+export default (state = initState, { type, payload }) => {
+  console.log(type, payload);
+    switch (type)
+    {
+    case ADD_TODO:
+      return {
+        ...state,
+        todo: [...state.todo, payload]
+      };
+    case DELETE_TODO:
+      return {
+        ...state,
+        todo: state.todo.filter((item) => item.id !== payload)
+      };
+    default:
+      return state;
+  }
+};

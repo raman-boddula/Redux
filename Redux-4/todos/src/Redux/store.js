@@ -1,5 +1,5 @@
 import { createStore } from "redux";
-import { addTodo, toggleTodo } from "./action.js";
+import { addTodo } from "./action.js";
 import reducer from "./reducer.js";
 
 const initState = {
@@ -12,4 +12,4 @@ store.dispatch(addTodo("BUY CURD"));
 store.dispatch(addTodo("BUY BREAD"));
 console.log(store.getState());
 
-export default store;
+export { store };
