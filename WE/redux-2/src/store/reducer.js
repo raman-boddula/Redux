@@ -1,7 +1,7 @@
 import { ADD_TODO, DELETE_TODO,ADD_TODO_LOADING, ADD_TODO_SUCCESS,ADD_TODO_ERROR,GET_TODO_LOADING,GET_TODO_ERROR,GET_TODO_SUCCESS} from "./actionTypes";
 
 const init = { counter: 10 };
-const initState = { loading: false,todos: [],errors:false };
+const initState = { loading: false,todos: [],error:false };
 export const reducer = (state=initState, {type,payload })=>{
     switch (type) {
         case ADD_TODO:
