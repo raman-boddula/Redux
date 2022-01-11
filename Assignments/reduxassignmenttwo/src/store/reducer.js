@@ -15,25 +15,25 @@ import {
 const init = { loading: false, todos: [], error: false };
 export const reducer = (state = init, { type, payload }) => {
     switch (type) {
+      case ADD_TODO_LOADING:
+        return {
+          ...state,
+          loading: true,
+        };
       case ADD_TODO_SUCCESS:
         return {
           ...state,
           todos: [...state.todos.push, payload],
           loading: false,
         };
-      case ADD_TODO_LOADING:
-        return {
-          ...state,
-          loading: true,
-        };
       case ADD_TODO_ERROR:
         return {
           ...state,
           error: true,
-          loading: false,
         };
       case GET_TODO_LOADING:
         return {
+          ...state,
           loading: true,
         };
       case GET_TODO_SUCCESS:
@@ -49,27 +49,30 @@ export const reducer = (state = init, { type, payload }) => {
         };
         case UPDATE_TODO_ERROR:
             return {
-                
+              ...state,
+              //
             };
         case UPDATE_TODO_SUCCESS:
             return {
-                
+              ...state,
+              ///
             };
         case UPDATE_TODO_LOADING:
             return {
-                
+              ...state,
+              ////
             };
         case REMOVE_TODO_ERROR:
             return {
-                
+              ...state,
             };
         case REMOVE_TODO_SUCCESS:
             return {
-
+              ...state,
             };
         case REMOVE_TODO_LOADING:
             return {
-                
+              ...state,
             };
       default:
         return state;
