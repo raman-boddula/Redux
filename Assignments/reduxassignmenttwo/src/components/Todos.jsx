@@ -26,9 +26,7 @@ const [text, setText] = React.useState("");
             body: JSON.stringify({ status: "False", title: text }),
             headers: { 'Content-Type': 'application/json' },
         }).then((res) => res.json()).then((res) => {
-            dispatch(addTodoSuccess(res));
-        }).catch((e) => {
-            dispatch(addTodoError(e));
+            return dispatch(addTodoSuccess(res));
         });
         getTodos();
     }
