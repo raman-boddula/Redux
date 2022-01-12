@@ -1,0 +1,54 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "status": false,
+      "title": "Hello",
+      "id": 2
+    },
+    {
+      "status": false,
+      "title": "Hey bro",
+      "id": 3
+    },
+    {
+      "status": false,
+      "title": "loading not coming",
+      "id": 4
+    },
+    {
+      "status": false,
+      "title": "lets c",
+      "id": 5
+    },
+    {
+      "status": false,
+      "title": "helkfgkjdlff",
+      "id": 6
+    },
+    {
+      "status": false,
+      "title": "learning anything from vasu",
+      "id": 7
+    },
+    {
+      "status": false,
+      "title": "it will work",
+      "id": 8
+    },
+    {
+      "status": false,
+      "title": "it will working",
+      "id": 9
+    },
+    {
+      "status": false,
+      "title": "it will working aagain",
+      "id": 10
+    }
+  ]
+}
