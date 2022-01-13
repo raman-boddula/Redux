@@ -38,6 +38,17 @@ export const getTodoSuccess = (data) => {
         loading:false
     }
 }
+export const getData = () => (dispatch) => {
+  dispatch(getTodoLoading());
+    fetch("http://localhost:3001/todos")
+        .then((d) => d.json())
+        .then((data) => {
+            dispatch(getTodoSuccess(data));
+        })
+        .catch((err) => {
+            dispatch(getTodoError(err));
+        });
+};
 export const getTodoError = (err) => {
     return {
         type: GET_TODO_ERROR,

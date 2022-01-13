@@ -1,4 +1,4 @@
-import { ADD_TODO_ERROR, ADD_TODO_LOADING, ADD_TODO_SUCCESS, UPDATE_TODO_ERROR, UPDATE_TODO_LOADING, UPDATE_TODO_SUCCESS, REMOVE_TODO_ERROR, REMOVE_TODO_LOADING, REMOVE_TODO_SUCCESS, GET_TODO_ERROR, GET_TODO_SUCCESS, GET_TODO_LOADING, } from "./actionTypes"; 
+import { ADD_TODO_ERROR, ADD_TODO_LOADING,UPDATE_TODO,ADD_TODO_SUCCESS, UPDATE_TODO_ERROR, UPDATE_TODO_LOADING, UPDATE_TODO_SUCCESS, REMOVE_TODO_ERROR, REMOVE_TODO_LOADING, REMOVE_TODO_SUCCESS, GET_TODO_ERROR, GET_TODO_SUCCESS, GET_TODO_LOADING} from "./actionTypes"; 
 
 export const addTodoError = (err) => 
 {
@@ -30,10 +30,11 @@ export const updateTodoLoading = () =>
        type: UPDATE_TODO_LOADING 
     };
 };
-export const updateTodoSuccess = (data) => 
+export const updateTodoSuccess = (payload) => 
 {
+   
   return {
-       type: UPDATE_TODO_SUCCESS, payload: data 
+       type: UPDATE_TODO_SUCCESS, payload: payload 
     };
 };
 export const removeTodoError = (err) => 
@@ -48,10 +49,10 @@ export const removeTodoLoading = () =>
        type: REMOVE_TODO_LOADING 
     };
 };
-export const removeTodoSuccess = (data) => 
+export const removeTodoSuccess = (id) => 
 {
   return {
-       type: REMOVE_TODO_SUCCESS, payload: data 
+       type: REMOVE_TODO_SUCCESS, payload: id 
     }
        ;
 };
@@ -73,3 +74,8 @@ export const getTodoSuccess = (data) =>
        type: GET_TODO_SUCCESS, payload: data 
     };
 }; 
+export const updateTodo = (data) => {
+   return {
+      type:UPDATE_TODO,payload:data
+   }
+}

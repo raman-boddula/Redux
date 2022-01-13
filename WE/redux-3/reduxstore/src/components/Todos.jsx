@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { addTodoSuccess, addTodoError, addTodoLoading, getTodoSuccess, getTodoError, getTodoLoading } from "../features/todos/action";
+import { addTodoSuccess, addTodoError,getData, addTodoLoading, getTodoSuccess, getTodoError, getTodoLoading } from "../features/todos/action";
 export const Todo = () => {
     const [text, setText] = React.useState("");
     const { todos, loading, error } = useSelector((state) => ({ loading: state.todoState.loading, todos: state.todoState.todos, error: state.todoState.error }) );
@@ -8,17 +8,18 @@ export const Todo = () => {
     React.useEffect(() => {
         getTodo();
     }, []);
-     async function getTodo() {
-            try {
-                dispatch(getTodoLoading());
-                const data = await fetch("http://localhost:3001/todos");
-                const response = await data.json();
-                console.log(response)
-                dispatch(getTodoSuccess(response));
-            }
-            catch (e) {
-                dispatch(getTodoError(e));
-            }
+    function getTodo() {
+          dispatch(getData())
+         /*   // try {
+            //     dispatch(getTodoLoading());
+            //     const data = await fetch("http://localhost:3001/todos");
+            //     const response = await data.json();
+            //     console.log(response)
+            //     dispatch(getTodoSuccess(response));
+            // }
+            // catch (e) {
+            //     dispatch(getTodoError(e));
+            // }*/
         }
     const addTodo = () => {
         dispatch(addTodoLoading());

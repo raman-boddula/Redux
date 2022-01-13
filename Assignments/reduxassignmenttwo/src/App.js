@@ -3,13 +3,16 @@ import './App.css';
 import { Todo } from './components/Todos'
 import { Routes, Route } from "react-router-dom";
 import { TodoItem } from "./components/ItemDetails";
+import { EditTodo } from './components/EditTodo';
+
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/todos" element={<Todo />}></Route>
+        <Route path="/" element={<Todo />}></Route>
         <Route path="/todos/:id" element={<TodoItem />}></Route>
+        <Route path="/todo/:id/edit" element={<EditTodo />}></Route>
       </Routes>
       {/* <Todo /> */}
     </div>

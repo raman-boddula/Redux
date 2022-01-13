@@ -1,49 +1,29 @@
 {
   "todos": [
     {
-      "status": false,
-      "title": "learn react",
+      "status": true,
+      "title": "learn dsa",
       "id": 1
     },
     {
-      "status": "False",
-      "title": "Learn redux",
+      "status": false,
+      "title": "learn react",
       "id": 2
     },
     {
-      "status": "False",
-      "title": "Learn vue",
+      "status": false,
+      "title": "learn redux",
       "id": 3
     },
     {
-      "status": "False",
-      "title": "Learn everything you need",
+      "status": false,
+      "title": "learn Coding",
       "id": 4
     },
     {
-      "status": "False",
-      "title": "learn MERN Stack",
+      "status": false,
+      "title": "learn anything",
       "id": 5
-    },
-    {
-      "status": "False",
-      "title": "learn ",
-      "id": 6
-    },
-    {
-      "status": "False",
-      "title": "learnn",
-      "id": 7
-    },
-    {
-      "status": "False",
-      "title": "hey",
-      "id": 8
-    },
-    {
-      "status": "False",
-      "title": "new",
-      "id": 9
     }
   ]
 }
