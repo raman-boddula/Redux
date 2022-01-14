@@ -6,16 +6,23 @@ import { TodoItem } from "./components/ItemDetails";
 import { EditTodo } from './components/EditTodo';
 import { Login } from './components/Login';
 import {Button} from "antd"
-
+import {PrivateRoutes} from "./components/PrivateRoute"
 function App() {
   return (
     <div className="App">
-      <Link to={"/login"}><Button type="">Login</Button></Link>
       <Routes>
-        <Route path="/" element={<Todo />}></Route>
+        <Route
+          path="/"
+          element={
+            <PrivateRoutes>
+              <Todo />
+            </PrivateRoutes>
+          }
+        ></Route>
+        <Route path="/login" element={<Login />}></Route>
         <Route path="/todos/:id" element={<TodoItem />}></Route>
         <Route path="/todo/:id/edit" element={<EditTodo />}></Route>
-        <Route path="/login" element={< Login />}></Route>
+        <Route path="*" element={<h1>page not found</h1>}></Route>
       </Routes>
       {/* <Todo /> */}
     </div>
