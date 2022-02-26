@@ -1,27 +1,19 @@
 import React from 'react';
 import { Button, Input, Pagination } from 'antd';
 import { useSelector, useDispatch } from "react-redux";
-import { getUser,getUserList } from "../Redux/Github/actions";
+import { getUserList } from "../Redux/Github/actions";
 
 export const Dashboard = () => {
     const query = React.useRef({current : ""});
     const dispatch = useDispatch();
     const { data } = useSelector((state) => ({ data: state.githubReducer.data }));
 
-    
-    const getUserList = (query, page, page_size) => {
-        fetch(
-          `https://api.github.com/search/users?q=${query}&page=${page}&per_page=${page_size}`
-          )
-          .then((e) => e.json())
-          .then((e) => dispatch(getUser(e)));
-        };
-        
-        const handleSearch = () => {
-            getUserList(query.current.value,1,6);        
-        }
+    const handleSearch = () => {
+        console.log(query.current.state.value)
+        dispatch(getUserList(query.current.state.value, 1, 6));
+    }
     const handlePageChange = (page,pageSize) => {
-        getUserList(query.current, page, pageSize);
+        dispatch(getUserList(query.current.state.value, page, pageSize));
     }
     return (
         <div>
@@ -29,14 +21,14 @@ export const Dashboard = () => {
                 <Input type="text" placeholder="Github profiles" ref={query} />
                 <Button onClick={handleSearch}>Search</Button>
             </div>
-            <div style={{display: 'grid',gridTemplateColumns : "repeat(4,23%)",margin : "30px auto",}}>
+            <div style={{display: 'grid',gridTemplateColumns : "repeat(4,23%)",gridGap:"1%",margin : "30px auto",}}>
                 {data?.items ?  data.items.map((e) => {
                     return (
                         <div key={e.id} >
                             <a href={e.html_url} target="_blank" rel="noreferrer" >
-                                <div><img src={e.avatar_url} alt="userimg" style={{width : "300px",height : "300px"}}></img></div>
+                                <div style={{border:"4px solid cyan"}}><img src={e.avatar_url} alt="userimg" style={{width : "300px",height : "300px"}}></img></div>
                                 <div>
-                                    <h3>{e.login}</h3>
+                                    <h2>{e.login}</h2>
                                 </div>
                             </a>
                         </div>
