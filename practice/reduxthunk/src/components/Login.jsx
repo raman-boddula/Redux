@@ -26,7 +26,7 @@ export const Login = () => {
         .then((res) => {
             console.log("response", res)
             dispatch(loginSuccess(res.token));
-            navigate('/dashboard')
+            navigate(-1)
             })
             .catch((error) =>
             console.log("error",error),

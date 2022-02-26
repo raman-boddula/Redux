@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Input, Pagination } from 'antd';
+import { Button, Input,Empty, Pagination } from 'antd';
 import { useSelector, useDispatch } from "react-redux";
 import { getUserList } from "../Redux/Github/actions";
 
@@ -33,7 +33,7 @@ export const Dashboard = () => {
                             </a>
                         </div>
                     ) 
-                }): <div>No data</div>}
+                }) : <div style={{ width: "360%", marginLeft: "35%" }}><Empty /></div>}
             </div>
             <div style={{textAlign: "center",paddingTop: "20px", paddingBottom: "40px"}} >
                {data?.items ? <Pagination  defaultCurrent={1} total={data.total_count} defaultPageSize={6} pageSize={6} onChange={handlePageChange}/>:null}
