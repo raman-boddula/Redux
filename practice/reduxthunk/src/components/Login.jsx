@@ -1,7 +1,7 @@
 import { Button, Input } from 'antd';
 import React from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {loginFailure,loginSuccess} from "../Redux/Login/action";
 
 
@@ -37,7 +37,9 @@ export const Login = () => {
             <h1>Login here!</h1>
             <Input type="text" id="email" placeholder="Enter your Email" onChange={handleChange}/><br/><br/>
             <Input type="password" id = "password" placeholder="Enter your Password" onChange={handleChange} /><br/><br/>
-            <Button type="submit" onClick={handleClick}>Submit</Button> 
+            <Button type="submit" type="primary" onClick={handleClick}>Login</Button> <br/><br/><br/>
+            <p>Create a new account ? <Link to="/register"> <Button >Register </Button></Link></p>
+           
         </div>
     )
 }

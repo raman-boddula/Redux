@@ -17,6 +17,7 @@ export const Dashboard = () => {
     }
     return (
         <div>
+            <h1>Search GitHub Profiles here..!</h1>
             <div style={{ width: "30%", marginLeft: "35%" }}>
                 <Input type="text" placeholder="Github profiles" ref={query} />
                 <Button onClick={handleSearch}>Search</Button>
@@ -26,7 +27,7 @@ export const Dashboard = () => {
                     return (
                         <div key={e.id} >
                             <a href={e.html_url} target="_blank" rel="noreferrer" >
-                                <div style={{border:"4px solid cyan"}}><img src={e.avatar_url} alt="userimg" style={{width : "300px",height : "300px"}}></img></div>
+                                <div><img src={e.avatar_url} alt="userimg" style={{width : "300px",height : "300px"}}></img></div>
                                 <div>
                                     <h2>{e.login}</h2>
                                 </div>
