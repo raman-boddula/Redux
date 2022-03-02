@@ -33,12 +33,12 @@ export const Login = () => {
             dispatch(loginFailure(error)));
     }
     return (
-        <div style={{ width: "30%", marginLeft: "35%" }}>
-            <h1>Login here!</h1>
+        <div className="loginDiv" style={{ width: "30%", marginLeft: "35%" }}>
+            <h1 style={{color:"white",fontSize:"2em",fontWeight:"bold",fontStyle:"italic"}}>Login here!</h1>
             <Input type="text" id="email" placeholder="Enter your Email" onChange={handleChange}/><br/><br/>
             <Input type="password" id = "password" placeholder="Enter your Password" onChange={handleChange} /><br/><br/>
-            <Button type="submit" type="primary" onClick={handleClick}>Login</Button> <br/><br/><br/>
-            <p>Create a new account ? <Link to="/register"> <Button >Register </Button></Link></p>
+            <Button  type="primary" onClick={handleClick}>Login</Button> <br/><br/><br/>
+            <h1 style={{color:'white'}}>Create a new account ? <Link to="/register"> <Button >Register </Button></Link></h1>
            
         </div>
     )

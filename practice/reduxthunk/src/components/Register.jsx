@@ -3,7 +3,7 @@ import React from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { Link, Navigate } from 'react-router-dom';
 import {registerSuccess,registerFailed} from "../Redux/Register/action"
-
+import "./Style.css"
 export const Register = () => {
     const [form, setForm] = React.useState({});
     const { token } = useSelector((state) => ({token: state.registerReducer.token }));
@@ -30,8 +30,8 @@ export const Register = () => {
         return <Navigate to="/login"/>
     }
     return (
-        <div style={{ width: "30%", marginLeft: "35%" }}>
-            <h1>Register here!</h1>
+        <div className="mainDiv" style={{ width: "30%", marginLeft: "35%"}}>
+            <h1 style={{color:'white'}}>Register here!</h1>
             <Input type="text" id="Name" placeholder="Enter your Name" onChange={handleChange}/><br/><br/>
             <Input type="text" id="Email" placeholder="Enter your Email" onChange={handleChange}/><br/><br/>
             <Input type="password" id="Password" placeholder="Enter your Password" onChange={handleChange}/><br/><br/>
@@ -39,7 +39,7 @@ export const Register = () => {
             <Input type="text" id="Mobile" placeholder="Enter your Mobile" onChange={handleChange}/><br/><br/>
             <Input type="description" id="Description" placeholder="Enter your Description" onChange={handleChange} /><br/><br/>
             <Button type="primary"  onClick={handleClick}>Register</Button> <br /><br /><br />
-            <p>Already Registered ? <Link to="/login"> <Button>Login</Button> </Link></p>
+            <h1 style={{color:'white'}}>Already Registered ? <Link to="/login"> <Button>Login</Button> </Link></h1>
         </div>
     )
 }
