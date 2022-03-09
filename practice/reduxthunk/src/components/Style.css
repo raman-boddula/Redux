@@ -1,11 +1,12 @@
 .mainDiv {
-    background-image: url("https://images.pexels.com/photos/1910225/pexels-photo-1910225.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-image: linear-gradient(to right, #00eeff, rgb(224, 218, 218));
+
     padding: 1em;
     margin: 2em;
 }
 
 .loginDiv {
-    background-image: url("https://images.pexels.com/photos/1910225/pexels-photo-1910225.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-image: linear-gradient(to right, rgb(224, 218, 218), #00eeff);
     margin-top: 2em;
     padding: 3em;
 }

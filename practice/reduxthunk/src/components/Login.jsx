@@ -3,7 +3,7 @@ import React from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from 'react-router-dom';
 import {loginFailure,loginSuccess} from "../Redux/Login/action";
-
+import axios from 'axios';
 
 export const Login = () => {
     const [details, setDetails] = React.useState({});
@@ -11,32 +11,25 @@ export const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const handleChange = (e) => {
-        setDetails({ ...details, [e.target.id]: e.target.value });
+        const { id, value } = e.target;
+        setDetails({ ...details, [id]: value });
     }
     const handleClick = () => {
         console.log(details);
-        fetch("https://reqres.in/api/login/", {
-            body: JSON.stringify(details),
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        }).then((response) => response.json()
-        )
-        .then((res) => {
-            console.log("response", res)
-            dispatch(loginSuccess(res.token));
-            navigate(-1)
+        axios.post("https://kiranamlist.herokuapp.com/login", details).then((response) => {
+            console.log("response", response);
+            dispatch(loginSuccess(response.data.token));
+            navigate('/')
             })
             .catch((error) =>
             console.log("error",error),
             dispatch(loginFailure(error)));
     }
     return (
-        <div className="loginDiv" style={{ width: "30%", marginLeft: "35%" }}>
+        <div className="loginDiv" style={{ width: "30%", marginLeft: "35%"}}>
             <h1 style={{color:"white",fontSize:"2em",fontWeight:"bold",fontStyle:"italic"}}>Login here!</h1>
-            <Input type="text" id="email" placeholder="Enter your Email" onChange={handleChange}/><br/><br/>
-            <Input type="password" id = "password" placeholder="Enter your Password" onChange={handleChange} /><br/><br/>
+            <Input type="text" id="Email" placeholder="Enter your Email" onChange={handleChange}/><br/><br/>
+            <Input type="password" id = "Password" placeholder="Enter your Password" onChange={handleChange} /><br/><br/>
             <Button  type="primary" onClick={handleClick}>Login</Button> <br/><br/><br/>
             <h1 style={{color:'white'}}>Create a new account ? <Link to="/register"> <Button >Register </Button></Link></h1>
            
